@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this framework, please cite the paper."
+title: "AI Model Performance in CV Generation and Consistency Testing: A Practical Six-Dimension Evaluation Framework"
+authors:
+  - family-names: Dumpala
+    given-names: Sai
+    affiliation: Birmingham City University
+date-released: 2026-05-07
+doi: 10.5281/zenodo.20102941
+url: "https://github.com/SAIDUMPALA01/LLm-Evaluation-framework"
+type: article

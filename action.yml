@@ -1,0 +1,50 @@
+name: "sixdim-eval quality gate"
+description: "Score LLM outputs on six dimensions and fail the build if quality drops below your thresholds."
+author: "Sai Dumpala"
+branding:
+  icon: "check-circle"
+  color: "blue"
+inputs:
+  cases:
+    description: "Path to a JSONL file of cases ({id, source, output, spec?})."
+    required: true
+  judge:
+    description: "heuristic (free, offline), anthropic or openai."
+    default: "heuristic"
+  model:
+    description: "Model name for LLM judges (optional)."
+    default: ""
+  min-overall:
+    description: "Fail if the mean overall score is below this (optional)."
+    default: ""
+  min:
+    description: "Per-dimension minimums, one per line, e.g. 'factual_accuracy=4'."
+    default: ""
+  python-version:
+    default: "3.12"
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/setup-python@v5
+      with:
+        python-version: ${{ inputs.python-version }}
+    - name: Install sixdim-eval
+      shell: bash
+      run: pip install "${{ github.action_path }}[anthropic]"
+    - name: Evaluate
+      shell: bash
+      run: |
+        args=(evaluate "${{ inputs.cases }}" --judge "${{ inputs.judge }}" --out sixdim-results.jsonl)
+        if [ -n "${{ inputs.model }}" ]; then args+=(--model "${{ inputs.model }}"); fi
+        sixdim "${args[@]}"
+        sixdim report sixdim-results.jsonl >> "$GITHUB_STEP_SUMMARY"
+    - name: Quality gate
+      shell: bash
+      run: |
+        args=(gate sixdim-results.jsonl)
+        if [ -n "${{ inputs.min-overall }}" ]; then args+=(--min-overall "${{ inputs.min-overall }}"); fi
+        while IFS= read -r line; do
+          line="$(echo "$line" | xargs)"
+          if [ -n "$line" ]; then args+=(--min "$line"); fi
+        done <<< "${{ inputs.min }}"
+        sixdim "${args[@]}"

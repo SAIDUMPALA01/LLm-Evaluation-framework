@@ -1,0 +1,45 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sixdim-eval"
+version = "0.1.0"
+description = "Evaluate LLM outputs on six dimensions (completeness, grounding, accuracy, calibration, consistency, spec adherence) and measure how far to trust the judge."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+authors = [{ name = "Sai Dumpala" }]
+keywords = ["llm", "evaluation", "llm-as-judge", "hallucination", "evals"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Science/Research",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = ["pydantic>=2.6", "httpx>=0.27"]
+
+[project.optional-dependencies]
+anthropic = ["anthropic>=0.40"]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[project.scripts]
+sixdim = "sixdim_eval.cli:main"
+
+[project.urls]
+Paper = "https://doi.org/10.5281/zenodo.20102941"
+Source = "https://github.com/SAIDUMPALA01/LLm-Evaluation-framework"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/sixdim_eval"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]
