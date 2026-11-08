@@ -33,3 +33,22 @@ def test_missing_api_key_is_a_clean_error(root, tmp_path, monkeypatch, capsys):
     )
     assert code == 2
     assert "ANTHROPIC_API_KEY" in capsys.readouterr().err
+
+
+def test_missing_anthropic_package_is_a_clean_error(root, tmp_path, monkeypatch, capsys):
+    import builtins
+
+    real_import = builtins.__import__
+
+    def fake_import(name, *args, **kwargs):
+        if name == "anthropic":
+            raise ImportError("No module named 'anthropic'")
+        return real_import(name, *args, **kwargs)
+
+    monkeypatch.setenv("ANTHROPIC_API_KEY", "test-key")
+    monkeypatch.setattr(builtins, "__import__", fake_import)
+    code = main(
+        ["evaluate", str(root / "examples" / "cases.jsonl"), "--judge", "anthropic", "--out", str(tmp_path / "x")]
+    )
+    assert code == 2
+    assert "pip install" in capsys.readouterr().err

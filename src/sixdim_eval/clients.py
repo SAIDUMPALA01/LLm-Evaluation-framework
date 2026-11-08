@@ -21,11 +21,13 @@ class AnthropicClient:
     """Claude via the Anthropic SDK (`pip install sixdim-eval[anthropic]`)."""
 
     def __init__(self, model: str | None = None, api_key: str | None = None, max_tokens: int = 1500):
-        from anthropic import Anthropic  # imported lazily: optional dependency
-
         key = api_key or os.getenv("ANTHROPIC_API_KEY")
         if not key:
             raise RuntimeError("ANTHROPIC_API_KEY is not set")
+        try:
+            from anthropic import Anthropic  # optional dependency
+        except ImportError:
+            raise RuntimeError("the anthropic package is not installed: pip install 'sixdim-eval[anthropic]'") from None
         self.model = model or os.getenv("SIXDIM_MODEL", "claude-sonnet-4-6")
         self.name = f"anthropic:{self.model}"
         self._client = Anthropic(api_key=key)
