@@ -167,7 +167,7 @@ Both apply the paper's **MISSING instruction**: the LLM judge is told to write "
 
 ## The paper's data
 
-Everything behind the paper is in [`paper/`](paper/): the PDF, the raw CSVs, the exact prompts and the lab notebook. Personal contact details in the prompts were redacted before publishing.
+Everything behind the paper is in [`paper/`](paper/): the PDF, the raw CSVs, the exact prompts and the lab notebook. Personal contact details (address, phone number and email) in the prompts and notebook were redacted before publishing.
 
 ```bash
 python paper/reproduce.py

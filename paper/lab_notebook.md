@@ -12,7 +12,7 @@ first paper
 
 I given this promert : i want resume for computer science job i  mean softerware engineering role like entry level i attech my bcs degree and master degree and my master final year i did a project medical image processing and my linkedin link is there www.linkedin.com/in/sai-dumpala
 
-&#x20;and github link is there https://github.com/SAIDUMPALA01 too my number [PHONE REDACTED] addrees [ADDRESS REDACTED], uk and my gmail id : dumpalasairamkrishnareddy@gmail.com give me pdf type
+&#x20;and github link is there https://github.com/SAIDUMPALA01 too my number [PHONE REDACTED] addrees [ADDRESS REDACTED], uk and my gmail id : [EMAIL REDACTED] give me pdf type
 
 
 
@@ -44,7 +44,7 @@ Here is a professional, ATS-friendly resume tailored for an entry-level software
 
 
 
-\[📞 [PHONE REDACTED]] | \[✉️ dumpalasairamkrishnareddy@gmail.com]
+\[📞 [PHONE REDACTED]] | \[✉️ [EMAIL REDACTED]]
 
 \[📍 [ADDRESS REDACTED]]
 
@@ -232,7 +232,7 @@ What browser/device? chrome
 
 What was the exact input you gave?   I given this promert : i want resume for computer science job i  mean softerware engineering role like entry level i attech my bcs degree and master degree and my master final year i did a project medical image processing and my linkedin link is there www.linkedin.com/in/sai-dumpala
 
-&#x20;and github link is there https://github.com/SAIDUMPALA01 too my number [PHONE REDACTED] addrees [ADDRESS REDACTED], uk and my gmail id : dumpalasairamkrishnareddy@gmail.com give me pdf type
+&#x20;and github link is there https://github.com/SAIDUMPALA01 too my number [PHONE REDACTED] addrees [ADDRESS REDACTED], uk and my gmail id : [EMAIL REDACTED] give me pdf type
 
 
 
@@ -274,7 +274,7 @@ The user wants me to create a resume/CV for a computer science/software engineer
 
 6\. Address: [ADDRESS REDACTED], UK
 
-7\. Email: dumpalasairamkrishnareddy@gmail.com
+7\. Email: [EMAIL REDACTED]
 
 
 
@@ -302,7 +302,7 @@ I cannot directly generate a PDF file, but I can create a professionally formatt
 
 📍 [ADDRESS REDACTED], UK
 
-📧 dumpalasairamkrishnareddy@gmail.com
+📧 [EMAIL REDACTED]
 
 📱 [PHONE REDACTED]
 
